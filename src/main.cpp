@@ -12,7 +12,8 @@ int main(int argc, char **argv)
   int status = gpioInitialise();
   LOG(INFO) << "gpio init = " << status;
 
-  int pHandle = serOpen((char*)"/dev/ttyUSB0",115200,0);//此处是ttyUSB0，根据实际设备节点进行配置
+  //此处是ttyUSB0，根据实际设备节点进行配置
+  int pHandle = serOpen((char*)"/dev/ttyUSB0",115200,0);
   char buff[0xFF] = {0};
 
   while (true)
