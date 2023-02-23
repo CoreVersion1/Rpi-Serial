@@ -1,5 +1,3 @@
-#include "main.hpp"
-
 #include <iostream>
 #include <pigpio.h>
 #include <glog/logging.h>
