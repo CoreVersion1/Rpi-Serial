@@ -14,7 +14,7 @@ int main(int argc, char **argv)
   }
 
   // 此处是ttyUSB0，根据实际设备节点进行配置
-  int pHandle = serOpen((char *)"/dev/ttyUSB0", 115200, 0);
+  int pHandle     = serOpen((char *)"/dev/ttyUSB0", 115200, 0);
   char buff[0xFF] = {0};
 
   if (pHandle < 0)
@@ -26,17 +26,13 @@ int main(int argc, char **argv)
   while (true)
   {
     // Send data = 0x31
-    std::cout << " Write Byte state = "
-              << serWriteByte(pHandle, 0x31)
-              << std::endl;
+    std::cout << " Write Byte state = " << serWriteByte(pHandle, 0x31) << std::endl;
 
     // Receive data
     uint16_t dataNum = serDataAvailable(pHandle);
     if (dataNum)
     {
-      std::cout << " Read Bytes Number = "
-                << serRead(pHandle, buff, dataNum)
-                << std::endl;
+      std::cout << " Read Bytes Number = " << serRead(pHandle, buff, dataNum) << std::endl;
 
       std::cout << "Recv Data : ";
       for (uint16_t i = 0; i < dataNum; i++)
